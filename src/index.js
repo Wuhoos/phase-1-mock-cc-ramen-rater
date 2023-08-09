@@ -16,20 +16,28 @@ fetch('http://localhost:3000/ramens')
 })
 
 function showRamenImage(ramen){
-        const newDiv = document.createElement('div')
-        const imageDisplay = document.createElement('img')
-        const deleteButton = document.createElement('button')
-        deleteButton.textContent = "Delete"
+    const newDiv = document.createElement('div')
+    const imageDisplay = document.createElement('img')
+    const deleteButton = document.createElement('button')
+    deleteButton.textContent = "Delete"
 
-        newDiv.append(imageDisplay, deleteButton)
+    newDiv.append(imageDisplay, deleteButton)
 
-        imageDisplay.src = ramen.image
-        ramenImageDisplay.appendChild(newDiv)
-        imageDisplay.addEventListener('click', () => ramenDetails(ramen))
-        deleteButton.addEventListener('click', () => {
-            imageDisplay.parentElement.remove(ramen)
-        })
-        console.log(imageDisplay.parentElement)
+    imageDisplay.src = ramen.image
+    ramenImageDisplay.appendChild(newDiv)
+    imageDisplay.addEventListener('click', () => ramenDetails(ramen))
+    deleteButton.addEventListener('click', () => {
+        imageDisplay.parentElement.remove(ramen)
+        const placeHolder = {
+            name: "",
+            restaurant: "",
+            image: "./assets/image-placeholder.jpg",
+            rating: "",
+            comment: ""
+        }
+        ramenDetails(placeHolder)
+    })
+    console.log(imageDisplay.parentElement)
 }
 
 
